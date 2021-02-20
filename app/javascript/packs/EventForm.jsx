@@ -1,19 +1,15 @@
 import React from 'react'
 
-class EventForm extends React.Component {
-  render () {
-    return (
-      <div>
-        <h4>Create an Event:</h4>
-        <form>
-          <input type='text' name='title' placeholder='Title' />
-          <input type='text' name='start_datetime' placeholder='Date' />
-          <input type='text' name='location' placeholder='Location' />
-          <button type='submit'>Create Event</button>
-        </form>
-      </div>
-    )
-  }
-}
+const EventForm = (props) => (
+  <div>
+    <h4>Create an Event:</h4>
+    <form onSubmit={props.handleSubmit}>
+      <input type='text' name='title' placeholder='Title' value={props.title} onChange={props.handleInput} />
+      <input type='text' name='start_datetime' placeholder='Date' value={props.start_datetime} onChange={props.handleInput} />
+      <input type='text' name='location' placeholder='Location' value={props.location} onChange={props.handleInput} />
+      <button type='submit'>Create Event</button>
+    </form>
+  </div>
+)
 
 export default EventForm
